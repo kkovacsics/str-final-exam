@@ -1,3 +1,14 @@
+<div class="row d-flex justify-content-end">
+  <div class="form-inline form-group">
+      <label for="phrase" class="mr-2">Filter: </label>
+       <div class="form-group">
+          <select class="form-control" id="column" (change)="onChangeColumn($event)">
+              <option *ngFor="let col of cols" [value]="col">{{ col }}</option>
+          </select>
+      </div>     
+       <input id="phrase" (keyup)="onChangePhrase($event)" [value]="phrase" class="form-control mr-sm-2" type="text" placeholder="Search">
+  </div>
+</div>
 <div class="row">
   <div class="col-12 mt-2">
     <h2>User List</h2>
@@ -13,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async">
+        <tr *ngFor="let user of users$ | async | filter:phrase:column">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

@@ -12,6 +12,8 @@ export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
 
+  cols: string[] = Object.getOwnPropertyNames( new User());
+
   constructor(
     private userService: UserService,
   ) { }
@@ -27,5 +29,17 @@ export class UserListComponent implements OnInit {
   onDelete(user: User): void {
     this.userService.remove(user);
   }
+
+  //filter
+  column: string = 'id';
+  phrase: string = '';
+  onChangePhrase(event: Event):void {
+    this.phrase = (event.target as HTMLInputElement).value;
+  }
+  onChangeColumn(event: Event): void {
+    this.column = (event.target as HTMLInputElement).value;
+    this.phrase = '';
+  }
+
   
 }
