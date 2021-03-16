@@ -15,16 +15,16 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Address</th>
-          <th>Active</th>
+          <th (click)="onChangeOrderColumn('id')">#</th>
+          <th (click)="onChangeOrderColumn('name')">Name</th>
+          <th (click)="onChangeOrderColumn('email')">Email</th>
+          <th (click)="onChangeOrderColumn('address')">Address</th>
+          <th (click)="onChangeOrderColumn('active')">Active</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of users$ | async | filter:phrase:column">
+        <tr *ngFor="let user of users$ | async | filter:phrase:column | sorter:orderColumn:orderDirectionAsc">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>

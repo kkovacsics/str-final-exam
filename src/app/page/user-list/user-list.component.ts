@@ -41,5 +41,17 @@ export class UserListComponent implements OnInit {
     this.phrase = '';
   }
 
+  //order
+  orderColumn: string = '';
+  orderDirectionAsc: boolean = true;
+  onChangeOrderColumn(column: string): void {
+    if(this.orderColumn === column){
+      this.orderDirectionAsc = !this.orderDirectionAsc;
+    } else {
+      this.orderColumn = column;
+      this.orderDirectionAsc = true;
+    }
+  }
+
   
 }
