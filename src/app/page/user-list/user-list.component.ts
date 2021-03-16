@@ -19,4 +19,13 @@ export class UserListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // delete
+  user:User = new User();
+  setUserToDelete(user: User): void {
+    this.user = user;
+  }
+  onDelete(user: User): void {
+    this.userService.remove(user);
+  }
+  
 }
