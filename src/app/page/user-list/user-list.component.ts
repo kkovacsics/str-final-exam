@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 
@@ -10,7 +10,7 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserListComponent implements OnInit {
 
-  users$: Observable<User[]> = this.userService.getAll();
+  users$: BehaviorSubject<User[]> = this.userService.userList;
 
   cols: string[] = Object.getOwnPropertyNames( new User());
 
@@ -19,6 +19,7 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userService.getAll();
   }
 
   // delete
@@ -27,9 +28,7 @@ export class UserListComponent implements OnInit {
     this.user = user;
   }
   onDelete(user: User): void {
-    this.userService.remove(user).subscribe(
-      (user) => { this.users$ = this.userService.getAll() }
-    );
+    this.userService.remove(user);
   }
 
   //filter
