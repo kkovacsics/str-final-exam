@@ -27,7 +27,9 @@ export class UserListComponent implements OnInit {
     this.user = user;
   }
   onDelete(user: User): void {
-    this.userService.remove(user);
+    this.userService.remove(user).subscribe(
+      (user) => { this.users$ = this.userService.getAll() }
+    );
   }
 
   //filter

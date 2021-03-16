@@ -41,11 +41,10 @@ export class UserEditorComponent implements OnInit {
   onUpdate(user: User): void {
     if(user.id){
       this.userService.update(user);
-      this.router.navigate([''])
     } else {
       this.userService.create(user);
-      this.router.navigate(['']);
     }
+    this.router.navigate(['']);
   }
 
 }

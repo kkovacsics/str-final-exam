@@ -1,13 +1,6 @@
 {
   "users": [
     {
-      "id": 3,
-      "name": "Marius Beddows",
-      "email": "mbeddows2@topsy.com",
-      "address": "5 Kennedy Drive",
-      "active": true
-    },
-    {
       "id": 4,
       "name": "Brigitte Morland",
       "email": "bmorland3@biblegateway.com",
@@ -40,13 +33,6 @@
       "name": "Stillman Crowche",
       "email": "scrowche7@umich.edu",
       "address": "53 Bunting Court",
-      "active": true
-    },
-    {
-      "id": 9,
-      "name": "Roderich Jimmison",
-      "email": "rjimmison8@nih.gov",
-      "address": "0758 Pearson Junction",
       "active": true
     },
     {
